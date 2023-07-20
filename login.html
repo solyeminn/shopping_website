@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet " href="style.css">
+    <script src="https://kit.fontawesome.com/58349bd479.js" crossorigin="anonymous"></script>
+    <title>myntra</title>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="img/logo.jpg" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a  href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+             
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="login.html">Login</a></li>
+             <li id="lg-bag"><a href="cart.html" ><i class="fa-solid fa-bag-shopping"></i></a></li>
+             <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+     <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+     <i id="bar" class="fas fa-outdent"></i>
+        </div>
+       </section>
+<div class="account_page">
+    <div class="account_container">
+        <div class="row">
+            <div class="col-2">
+               <div class="form-container">
+                <div class="form-btn">
+                <span onclick="login()">Login</span>
+                <span onclick="register()">Register</span>
+                <hr id="indicator">
+                </div>
+                <form class="loginform" action="index.html" name="form" onsubmit="return validated()">
+                    <input  type="email" name="email" placeholder="Email">
+                    <div id="email_error" class="common">Please fill up your Email</div>
+                    <input type="password" name="password" placeholder="Password">
+                    <div id="pass_error" class="common">Please fill up your Password</div>
+                    <button type="submit" class="normal btn">Login</button>
+                </form>
+                 <form class="regform"  onsubmit="return check()">
+                    <input type="text" placeholder="Username" id="te">
+                    <input type="email" placeholder="Email" id="em">
+                    <input type="password" placeholder="Password" id="pas">
+                        <button type="submit" class="normal btn">Register</button>
+                </form>
+               </div>   
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="section-p1" id="footer">
+        <div class="col">
+           <img  class="logo" src="img/logo.jpg" alt="">
+           <h4>Contact</h4>
+           <p><strong>Address:</strong> 562 Willingston road, street 32, San Freancisco</p>
+           <p><strong>Phone: </strong>+01 2222 365/(+91) 01 2345 6789</p>
+           <p><strong>Hours: </strong>10.00 - 18.00, Mon - Sat</p>
+          <div class="follow">
+        <h4>Follow Us</h4>
+        <div class="icon">
+       <i class="fab fa-facebook-f"></i>
+       <i class="fab fa-twitter"></i>
+       <i class="fab fa-instagram"></i>
+       <i class="fab fa-pinterest-p"></i>
+       <i class="fab fa-youtube"></i>
+        </div>
+          </div>
+        </div>
+        <div class="col">
+        <h4>About</h4>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+       
+        </div>
+        <div class="col">
+           <h4>My Account</h4>
+           <a href="#">Sign In</a>
+           <a href="#">View Cart</a>
+           <a href="#">My Wishlist</a>
+           <a href="#">Track My Order</a>
+           <a href="#">Help</a>
+           </div>
+           <div class="col install">
+               <h4>Install Apps</h4>
+               <p>From App Store or Google Play</p>
+               <div class="row">
+                   <img src="img/app/app1.jpg" alt="">
+                   <img src="img/app/app2.webp" alt="">
+       
+               </div>
+               <p>Secure Payment Gateways</p>
+               <img src="img/payment.jpg" alt="">
+           </div>
+           <div class="copyright">
+          <p>0 2021 Tech2 etc - HTML CSS Ecommerce Template</p>
+           </div>
+ </footer>
+
+ <script >
+    const loginform=document.querySelector('.loginform');
+const regform=document.querySelector('.regform');
+const indicator=document.getElementById("indicator");
+
+function register(){
+    regform.style.transform="translateX(0px)";
+    loginform.style.transform="translateX(0px)";
+    indicator.style.transform="translateX(140px)";
+}
+
+function login(){
+    regform.style.transform="translateX(325px)";
+    loginform.style.transform="translateX(325px)";
+    indicator.style.transform="translateX(20px)";
+}
+
+var email = document.forms['form']['email'];
+var password = document.forms['form']['password'];
+
+var email_error = document.querySelector('#email_error');
+var pass_error = document.querySelector('#pass_error');
+
+email.addEventListener('textInput', email_Verify);
+password.addEventListener('textInput', pass_Verify);
+
+
+function validated(){
+	if (email.value.length < 9) {
+		email.style.border = "1px solid red";
+		email_error.style.display = "block";
+		email.focus();
+		return false;
+	}
+	if (password.value.length < 6) {
+		password.style.border = "1px solid red";
+		pass_error.style.display = "block";
+		password.focus();
+		return false;
+	}
+
+}
+function email_Verify(){
+	if (email.value.length >= 8) {
+		email.style.border = "1px solid silver";
+		email_error.style.display = "none";
+		return true;
+	}
+}
+function pass_Verify(){
+	if (password.value.length >= 5) {
+		password.style.border = "1px solid silver";
+		pass_error.style.display = "none";
+		return true;
+	}
+}
+function  check(){
+    const te=document.getElementById("te");
+    const em=document.getElementById("em");
+    const pas=document.getElementById("pas");
+    if(te.value.length<1 || em.value.length<9 || pas.value.length<6){
+        if(te.value.length<1 )
+        alert("please Enter your name");
+       else  if(em.value.length<9 )
+        alert("please Enter Valid Email");
+        else if(te.value.length<9 )
+        alert("please Enter 9 Digit Password");
+        return false;
+    }
+   else{
+    alert("Register Successfully");
+   login();
+   return false;
+   }
+}
+
+ </script>
+
+</body>
+</html>
