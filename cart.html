@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myntra</title>
+    <title>Butterfly</title>
     <script src="https://kit.fontawesome.com/58349bd479.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet"  href="style.css">
@@ -81,7 +81,7 @@
                 <td ><strong></strong></td>
             </tr>
         </table>
-      <a href="home.html"> <button class="normal">Proceed To Checkout</button></a>
+       <button class="normal" onclick="checkto()">Proceed To Checkout</button>
     </div>
  
 </section>
@@ -405,6 +405,15 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
 }
+function checkto(){
+   if( quantity.innerText!=0){
+    window.location.href='home.html';
+   }
+   else{
+    alert("please select Item from Cart to proceed");
+   }
+  
+    }
     </script>
 </body>
 </html>
